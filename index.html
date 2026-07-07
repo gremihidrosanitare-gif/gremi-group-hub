@@ -10,18 +10,11 @@
     <meta name="robots" content="index, follow">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
     <style>
         .hover-lift {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hover-lift:hover {
-            transform: translateY(-6px);
-        }
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0px !important; }
-        .goog-te-gadget { font-size: 0px !important; }
-        .skiptranslate iframe { display: none !important; }
+        .hover-lift:hover { transform: translateY(-6px); }
     </style>
 </head>
 <body class="bg-[#FAF9F5] text-neutral-800 font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-neutral-200">
@@ -33,7 +26,10 @@
 
     <!-- Header (Vetëm Përkthimi dhe Lokacionet) -->
     <header class="relative z-10 w-full max-w-7xl mx-auto px-6 h-24 flex items-center justify-between sm:justify-end gap-4">
-        <div id="google_translate_element" class="bg-white border border-neutral-200 px-3 py-1.5 rounded-full shadow-xs text-xs"></div>
+        <!-- Butoni i Përkthimit i Ri -->
+        <button id="lang-toggle" class="bg-white border border-neutral-200 hover:bg-neutral-50 px-4 py-2 rounded-full shadow-xs text-xs font-semibold flex items-center gap-2 cursor-pointer transition-colors">
+            <span>🇦🇱</span> <span id="btn-text">English</span>
+        </button>
         <div class="hidden sm:flex items-center gap-2 bg-white/60 border border-neutral-200/60 backdrop-blur-md px-4 py-2 rounded-full text-xs text-neutral-500 shadow-xs">
             <span class="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> Tiranë • Vlorë • Pogradec
         </div>
@@ -42,13 +38,14 @@
     <!-- Main Content -->
     <main class="relative z-10 max-w-5xl mx-auto px-6 py-12 w-full grow flex flex-col justify-center items-center">
         
-        <!-- Titulli Qendror Gremi Group dhe Hyrja -->
         <section class="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <h1 class="text-5xl md:text-7xl font-serif font-normal tracking-tight text-neutral-900 uppercase">
                 Gremi <span class="text-neutral-400 font-light">Group</span>
             </h1>
             <div class="w-12 h-[1px] bg-neutral-300 mx-auto my-2"></div>
-            <p class="text-neutral-500 text-sm md:text-base leading-relaxed max-w-lg mx-auto pt-2">
+            <p data-sq="Ambiente të kuruara, produkte dhe imobiliare premium. Zgjidhni një nga divizionet tona më poshtë për të kaluar direkt në platformat tona." 
+               data-en="Curated environments, premium products and real estate. Choose one of our divisions below to go directly to our platforms."
+               class="translatable text-neutral-500 text-sm md:text-base leading-relaxed max-w-lg mx-auto pt-2">
                 Ambiente të kuruara, produkte dhe imobiliare premium. Zgjidhni një nga divizionet tona më poshtë për të kaluar direkt në platformat tona.
             </p>
         </section>
@@ -61,10 +58,14 @@
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 font-bold text-sm mb-6 group-hover:scale-110 transition-transform">⚙️</div>
                     <h2 class="text-2xl font-serif text-neutral-900 mb-2 group-hover:text-sky-600 transition-colors">Gremi Hidrosanitare</h2>
-                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">Importe premium të hidrosanitareve evropiane, pllaka qeramike, dhe sisteme të avancuara kondicionimi.</p>
+                    <p data-sq="Importe premium të hidrosanitareve evropiane, pllaka qeramike, dhe sisteme të avancuara kondicionimi." 
+                       data-en="Premium imports of European sanitary wear, ceramic tiles, and advanced air conditioning systems."
+                       class="translatable text-neutral-500 text-sm leading-relaxed max-w-xs">
+                        Importe premium të hidrosanitareve evropiane, pllaka qeramike, dhe sisteme të avancuara kondicionimi.
+                    </p>
                 </div>
                 <div class="mt-8 flex items-center justify-between pt-4 border-t border-neutral-100">
-                    <span class="text-xs font-bold tracking-wider uppercase text-neutral-400 group-hover:text-sky-600 transition-colors">B2B & Stok Showroom-i</span>
+                    <span data-sq="B2B & Stok Showroom-i" data-en="B2B & Stock Showroom" class="translatable text-xs font-bold tracking-wider uppercase text-neutral-400 group-hover:text-sky-600 transition-colors">B2B & Stok Showroom-i</span>
                     <span class="w-8 h-8 rounded-full bg-neutral-50 group-hover:bg-sky-500 group-hover:text-white flex items-center justify-center text-neutral-400 text-sm transition-all transform group-hover:translate-x-1">&rarr;</span>
                 </div>
             </a>
@@ -75,10 +76,14 @@
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500 font-bold text-sm mb-6 group-hover:scale-110 transition-transform">🏡</div>
                     <h2 class="text-2xl font-serif text-neutral-900 mb-2 group-hover:text-rose-500 transition-colors">Gremi Residences</h2>
-                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">Apartamente luksoze me pamje nga deti në Lungomare, Vlorë dhe rezidencë qetësie buzë liqenit në Pogradec.</p>
+                    <p data-sq="Apartamente luksoze me pamje nga deti në Lungomare, Vlorë dhe rezidencë qetësie buzë liqenit në Pogradec." 
+                       data-en="Luxury sea view apartments in Lungomare, Vlorë and a serene lakeside retreat in Pogradec."
+                       class="translatable text-neutral-500 text-sm leading-relaxed max-w-xs">
+                        Apartamente luksoze me pamje nga deti në Lungomare, Vlorë dhe rezidencë qetësie buzë liqenit në Pogradec.
+                    </p>
                 </div>
                 <div class="mt-8 flex items-center justify-between pt-4 border-t border-neutral-100">
-                    <span class="text-xs font-bold tracking-wider uppercase text-neutral-400 group-hover:text-rose-500 transition-colors">Rezervime Direkte Pushimesh</span>
+                    <span data-sq="Rezervime Direkte Pushimesh" data-en="Direct Holiday Bookings" class="translatable text-xs font-bold tracking-wider uppercase text-neutral-400 group-hover:text-rose-500 transition-colors">Rezervime Direkte Pushimesh</span>
                     <span class="w-8 h-8 rounded-full bg-neutral-50 group-hover:bg-rose-500 group-hover:text-white flex items-center justify-center text-neutral-400 text-sm transition-all transform group-hover:translate-x-1">&rarr;</span>
                 </div>
             </a>
@@ -86,18 +91,32 @@
     </main>
 
     <footer class="relative z-10 w-full border-t border-neutral-200/60 bg-white/40 backdrop-blur-xs py-8 text-center text-xs text-neutral-400 tracking-wide font-medium">
-        &copy; 2026 Gremi Group Albania. Të gjitha të drejtat e rezervuara.
+        &copy; 2026 Gremi Group Albania. <span data-sq="Të gjitha të drejtat e rezervuara." data-en="All rights reserved.">Të gjitha të drejtat e rezervuara.</span>
     </footer>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'sq',
-                includedLanguages: 'en,sq',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
+    <!-- Skripti i përkthimit shtëpiak -->
+    <script>
+        const btn = document.getElementById('lang-toggle');
+        const btnText = document.getElementById('btn-text');
+        let currentLang = 'sq';
+
+        btn.addEventListener('click', () => {
+            currentLang = currentLang === 'sq' ? 'en' : 'sq';
+            
+            // Përditëso butonat dhe flamujt
+            if (currentLang === 'en') {
+                btn.innerHTML = '<span>🇬🇧</span> <span>Shqip</span>';
+                document.documentElement.lang = 'en';
+            } else {
+                btn.innerHTML = '<span>🇦🇱</span> <span>English</span>';
+                document.documentElement.lang = 'sq';
+            }
+
+            // Përkthe të gjithë elementët me klasën 'translatable'
+            document.querySelectorAll('.translatable').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+        });
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
