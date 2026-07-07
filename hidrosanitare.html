@@ -15,16 +15,8 @@
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
         }
-        .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 35s linear infinite;
-        }
+        .animate-marquee { display: flex; width: max-content; animation: marquee 35s linear infinite; }
         .animate-marquee:hover { animation-play-state: paused; }
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0px !important; }
-        .goog-te-gadget { font-size: 0px !important; }
-        .skiptranslate iframe { display: none !important; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between antialiased">
@@ -32,14 +24,16 @@
     <!-- Header me Logon e Re Zyrtare -->
     <header class="border-b border-slate-900 bg-slate-955/90 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Korniza e Logos Zyrtare -->
             <a href="index.html" class="flex items-center group">
                 <img src="transparent gremi logo.png" alt="Gremi Hidrosanitare Logo" class="h-12 w-auto object-contain transform group-hover:scale-105 transition-all drop-shadow-md">
             </a>
             
             <div class="flex items-center gap-4">
-                <div id="google_translate_element" class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full text-xs text-white"></div>
-                <a href="https://wa.me/355692089444" target="_blank" rel="noopener noreferrer" class="bg-sky-500 text-slate-950 font-bold text-xs md:text-sm px-5 py-2.5 rounded-lg shadow-md hover:bg-sky-400 transition-colors">
+                <!-- Butoni i Përkthimit -->
+                <button id="lang-toggle" class="bg-slate-900 border border-slate-800 hover:bg-slate-800 text-white px-4 py-2 rounded-full text-xs font-semibold flex items-center gap-2 cursor-pointer transition-colors">
+                    <span>🇦🇱</span> <span id="btn-text">English</span>
+                </button>
+                <a href="https://wa.me/355692089444" target="_blank" rel="noopener noreferrer" data-sq="Stoku Live" data-en="Live Stock" class="translatable bg-sky-500 text-slate-950 font-bold text-xs md:text-sm px-5 py-2.5 rounded-lg shadow-md">
                     Stoku Live
                 </a>
             </div>
@@ -50,86 +44,58 @@
         
         <!-- Banner -->
         <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-900 rounded-3xl p-8 md:p-14 space-y-6">
-            <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block">Importe Direkte Evropiane & Logjistikë Furnizimi</span>
+            <span data-sq="Importe Direkte Evropiane & Logjistikë Furnizimi" data-en="Direct European Imports & Supply Logistics" class="translatable text-xs font-bold uppercase tracking-widest text-sky-400 block">Importe Direkte Evropiane & Logjistikë Furnizimi</span>
             <h1 class="text-3xl md:text-5xl font-extralight tracking-tight text-white leading-tight max-w-3xl">
-                Qeramika Inxhinierike & <span class="font-normal text-sky-400">Kondicionim i Performancës së Lartë</span>
+                <span data-sq="Qeramika Inxhinierike &" data-en="Engineered Ceramics &" class="translatable">Qeramika Inxhinierike &</span> <span class="font-normal text-sky-400" data-sq="Kondicionim i Performancës së Lartë" data-en="High-Performance Air Conditioning">Kondicionim i Performancës së Lartë</span>
             </h1>
-            <p class="text-slate-400 text-sm md:text-base max-w-xl leading-relaxed">
+            <p data-sq="Ne sjellim prodhuesit më të mirë evropianë në tregun shqiptar. Kontaktoni për parametrat teknikë ose çmimet e shitjes me shumicë." data-en="We bring the finest European manufacturers to the Albanian market. Contact us for technical specs or wholesale pricing." class="translatable text-slate-400 text-sm md:text-base max-w-xl leading-relaxed">
                 Ne sjellim prodhuesit më të mirë evropianë në tregun shqiptar. Kontaktoni për parametrat teknikë ose çmimet e shitjes me shumicë.
             </p>
             <div class="flex flex-wrap gap-4 pt-2">
-                <a href="https://wa.me/355692089444" target="_blank" rel="noopener noreferrer" class="bg-sky-500 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-sm hover:bg-sky-400 transition-colors">🟢 WhatsApp Zyra e Logjistikës</a>
-                <a href="mailto:gremihidrosanitare@gmail.com" class="bg-slate-900 border border-slate-800 text-white font-medium px-6 py-3.5 rounded-xl text-sm hover:bg-slate-800 transition-colors">Kërko Kuotim B2B</a>
+                <a href="https://wa.me/355692089444" target="_blank" rel="noopener noreferrer" data-sq="🟢 WhatsApp Zyra e Logjistikës" data-en="🟢 WhatsApp Logistics Office" class="translatable bg-sky-500 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-sm">🟢 WhatsApp Zyra e Logjistikës</a>
+                <a href="mailto:gremihidrosanitare@gmail.com" data-sq="Kërko Kuotim B2B" data-en="Request B2B Quote" class="translatable bg-slate-900 border border-slate-800 text-white font-medium px-6 py-3.5 rounded-xl text-sm">Kërko Kuotim B2B</a>
             </div>
         </div>
-
-        <!-- Google Reviews Carousel -->
-        <section class="space-y-4 overflow-hidden py-4 border-y border-slate-900">
-            <div class="text-center md:text-left px-2">
-                <h3 class="text-xs font-bold text-sky-400 tracking-widest uppercase">⚙️ Rishikimet nga Kontaktorët dhe Klientët tanë</h3>
-            </div>
-            <div class="relative w-full overflow-hidden">
-                <div class="animate-marquee gap-6">
-                    <div class="bg-slate-900/50 border border-slate-900 p-6 rounded-2xl w-80 flex flex-col justify-between">
-                        <p class="text-slate-300 text-xs md:text-sm italic">"Zgjedhja kryesore në Shqipëri për pllaka porcelani të importuara dhe struktura sanitare. Çmime shumë korrekte."</p>
-                        <div class="flex items-center gap-2 mt-4"><div class="w-7 h-7 rounded-full bg-slate-800 font-bold text-[10px] flex items-center justify-center text-sky-400">ND</div><div><h5 class="text-xs font-bold text-white">Ndërtues Shqiptarë</h5><p class="text-[9px] text-slate-500">Rishikim i Verifikuar</p></div></div>
-                    </div>
-                    <div class="bg-slate-900/50 border border-slate-900 p-6 rounded-2xl w-80 flex flex-col justify-between">
-                        <p class="text-slate-300 text-xs md:text-sm italic">"Sisteme të shkëlqyera AC inverter multi-split. Logjistikë e shpejtë dhe materiale cilësore."</p>
-                        <div class="flex items-center gap-2 mt-4"><div class="w-7 h-7 rounded-full bg-slate-800 font-bold text-[10px] flex items-center justify-center text-sky-400">IL</div><div><h5 class="text-xs font-bold text-white">Ilir K.</h5><p class="text-[9px] text-slate-500">Klient Salloni</p></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Products -->
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <div class="bg-slate-900/30 border border-slate-900 p-6 md:p-8 rounded-2xl flex flex-col justify-between">
                 <div class="space-y-3">
-                    <h3 class="text-xl font-bold text-white">Pajisje Sanitare Luksoze</h3>
-                    <p class="text-slate-400 text-sm">Tualete minimale, sisteme inkaso të inkastruara, lavamanë modernë dhe rubinetë premium prej tunxhi.</p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-900/80 flex flex-col sm:flex-row gap-2">
-                    <a href="https://wa.me/355692089444?text=Katalogu" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2.5 bg-slate-900 text-xs font-bold rounded-lg hover:bg-sky-500 hover:text-slate-950 transition-all">Katalogu në WhatsApp</a>
-                    <a href="https://maps.google.com/?q=Tirana,Albania" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2.5 border border-slate-800 text-xs text-slate-400 hover:border-slate-700">Harta e Sallonit</a>
+                    <h3 data-sq="Pajisje Sanitare Luksoze" data-en="Luxury Sanitary Ware" class="translatable text-xl font-bold text-white">Pajisje Sanitare Luksoze</h3>
+                    <p data-sq="Tualete minimale, sisteme inkaso të inkastruara, lavamanë modernë dhe rubinetë premium prej tunxhi." data-en="Minimal toilets, built-in flush systems, modern washbasins, and premium brass faucets." class="translatable text-slate-400 text-sm">Tualete minimale, sisteme inkaso të inkastruara, lavamanë modernë dhe rubinetë premium prej tunxhi.</p>
                 </div>
             </div>
-
             <div class="bg-slate-900/30 border border-slate-900 p-6 md:p-8 rounded-2xl flex flex-col justify-between">
                 <div class="space-y-3">
-                    <h3 class="text-xl font-bold text-white">Kondicionim i Avancuar</h3>
-                    <p class="text-slate-400 text-sm">Sisteme kondicionimi inverter me efiçencë të lartë, impiante multi-split dhe zgjidhje për objekte komerciale.</p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-900/80 flex flex-col sm:flex-row gap-2">
-                    <a href="https://wa.me/355692089444?text=AC" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2.5 bg-slate-900 text-xs font-bold rounded-lg hover:bg-sky-500 hover:text-slate-950 transition-all">Specifikimet në WhatsApp</a>
-                    <a href="https://maps.google.com/?q=Tirana,Albania" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2.5 border border-slate-800 text-xs text-slate-400 hover:border-slate-700">Harta e Sallonit</a>
+                    <h3 data-sq="Kondicionim i Avancuar" data-en="Advanced Air Conditioning" class="translatable text-xl font-bold text-white">Kondicionim i Avancuar</h3>
+                    <p data-sq="Sisteme kondicionimi inverter me efiçencë të lartë, impiante multi-split dhe zgjidhje për objekte komerciale." data-en="High-efficiency inverter AC systems, multi-split setups, and solutions for commercial properties." class="translatable text-slate-400 text-sm">Sisteme kondicionimi inverter me efiçencë të lartë, impiante multi-split dhe zgjidhje për objekte komerciale.</p>
                 </div>
             </div>
         </section>
 
         <!-- Location Hub -->
         <section class="bg-slate-900/40 border border-slate-900 p-6 md:p-10 rounded-3xl space-y-4">
-            <h4 class="text-base font-bold text-white tracking-wide uppercase">📍 Qendra Kryesore e Operacioneve</h4>
-            <div class="text-slate-400 text-sm max-w-2xl">
-                Magazinat tona qendrore dhe zyrat logjistike ndodhen në **Tiranë, Shqipëri**, duke shpërndarë çdo ditë dërgesa në pikat tona rajonale në **Fier, Vlorë dhe Pogradec**.
-            </div>
-            <div class="pt-2">
-                <a href="https://maps.google.com/?q=Tirana,Albania" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:underline">
-                    Hap Vendndodhjen në Google Maps &rarr;
-                </a>
+            <h4 data-sq="📍 Qendra Kryesore e Operacioneve" data-en="📍 Main Operations Hub" class="translatable text-base font-bold text-white tracking-wide uppercase">📍 Qendra Kryesore e Operacioneve</h4>
+            <div data-sq="Magazinat tona qendrore dhe zyrat logjistike ndodhen në Tiranë, Shqipëri, duke shpërndarë çdo ditë dërgesa në pikat tona rajonale në Fier, Vlorë dhe Pogradec." data-en="Our central warehouses and logistics offices are based in Tirana, Albania, distributing daily shipments to our regional points in Fier, Vlora, and Pogradec." class="translatable text-slate-400 text-sm max-w-2xl">
+                Magazinat tona qendrore dhe zyrat logjistike ndodhen në Tiranë, Shqipëri, duke shpërndarë çdo ditë dërgesa në pikat tona rajonale në Fier, Vlorë dhe Pogradec.
             </div>
         </section>
     </main>
 
     <footer class="bg-slate-950 border-t border-slate-900 py-10 px-4 text-center md:text-left">
-        <a href="residences.html" class="text-xs font-bold text-sky-400 uppercase tracking-wider hover:text-sky-300 transition-colors">Kaloni te Gremi Residences &rarr;</a>
+        <a href="residences.html" data-sq="Kaloni te Gremi Residences &rarr;" data-en="Switch to Gremi Residences &rarr;" class="translatable text-xs font-bold text-sky-400 uppercase tracking-wider">Kaloni te Gremi Residences &rarr;</a>
     </footer>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'sq', includedLanguages: 'en,sq', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
+    <script>
+        const btn = document.getElementById('lang-toggle');
+        let currentLang = 'sq';
+        btn.addEventListener('click', () => {
+            currentLang = currentLang === 'sq' ? 'en' : 'sq';
+            btn.innerHTML = currentLang === 'en' ? '<span>🇬🇧</span> <span>Shqip</span>' : '<span>🇦🇱</span> <span>English</span>';
+            document.querySelectorAll('.translatable').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+        });
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
